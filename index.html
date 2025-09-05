@@ -3,183 +3,301 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jeremy Johnsonwall — Personal Site</title>
-  <meta name="description" content="Personal site of Jeremy Johnsonwall. Clemson University student." />
-  <meta property="og:title" content="Jeremy Johnsonwall" />
-  <meta property="og:description" content="Clemson University student — projects, resume, and contact." />
+  <title>Jeremy Johnsonwall — Computer Science</title>
+  <meta name="description" content="Computer Science graduate — software, data, and cloud projects, experience, and contact." />
+  <meta property="og:title" content="Jeremy Johnsonwall — Computer Science" />
+  <meta property="og:description" content="Software • Data • Cloud — projects, experience, skills, and contact." />
   <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0b1020" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"></noscript>
   <style>
     :root{
       --bg: #0b1020;
-      --card: #121a33cc;
+      --surface: #111833f2;
+      --muted-surface: #0c1229cc;
+      --border: #213060;
       --text: #e8edf7;
       --muted: #a9b3c9;
       --accent: #7c9cff;
+      --good: #75d39a;
       --ring: 0 0 0 3px rgba(124,156,255,.35);
       --radius: 18px;
+      --shadow: 0 10px 30px rgba(5, 12, 40, .35);
     }
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     body{
       margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, sans-serif;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
       color: var(--text);
       background:
         radial-gradient(1200px 800px at 80% -10%, #3046a880, transparent 60%),
         radial-gradient(900px 600px at -10% 110%, #6e2cff66, transparent 60%),
         var(--bg);
-      line-height: 1.6;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
     }
-    .wrap{
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 64px 20px 80px;
-      display: grid;
-      gap: 28px;
+    .wrap{ max-width: 1000px; margin: 0 auto; padding: 56px 20px 80px; display: grid; gap: 22px; }
+    header.hero{
+      display: grid; gap: 12px; text-align: center; padding: 22px; border-radius: var(--radius);
+      background: var(--muted-surface); border: 1px solid var(--border); box-shadow: var(--shadow);
     }
-    header{
-      display: grid;
-      gap: 12px;
-      text-align: center;
-    }
-    .tag{
-      display: inline-block;
-      padding: 6px 10px;
-      border: 1px solid #2a3356;
-      background: #0e1530aa;
-      color: var(--muted);
-      border-radius: 999px;
-      font-size: 12px;
-      letter-spacing: .2px;
-    }
-    h1{
-      margin: 0;
-      font-size: clamp(28px, 4.5vw, 44px);
-      letter-spacing: .2px;
-    }
-    .sub{
-      margin: 0 auto;
-      max-width: 60ch;
-      color: var(--muted);
-      font-size: clamp(14px, 2.3vw, 18px);
-    }
-    .card{
-      background: var(--card);
-      border: 1px solid #223063;
-      border-radius: var(--radius);
-      padding: 22px;
-      backdrop-filter: blur(6px);
-    }
-    .grid{
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 18px;
-    }
-    .col-span-7{ grid-column: span 7; }
-    .col-span-5{ grid-column: span 5; }
-    @media (max-width: 880px){
-      .grid{ grid-template-columns: 1fr; }
-      .col-span-7, .col-span-5{ grid-column: auto; }
-    }
-    h2{
-      margin: 0 0 10px;
-      font-size: 20px;
-    }
-    ul{ margin: 0; padding-left: 18px; }
-    a{
-      color: var(--accent);
-      text-decoration: none;
-    }
-    a:hover{ text-decoration: underline; }
-    .buttons{
-      display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
-    }
-    .btn{
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 12px;
-      border: 1px solid #2a3356;
-      background: #0e1530cc;
-      color: var(--text);
-      text-decoration: none;
-      transition: transform .06s ease, box-shadow .06s ease;
-    }
-    .btn:focus{ outline: none; box-shadow: var(--ring); }
+    .eyebrow{ display:inline-flex; align-items:center; gap:8px; font-size:12px; color:var(--muted);
+      padding:6px 10px; border-radius:999px; border:1px solid var(--border); background:#0e1530aa; }
+    h1{ margin:0; font-size: clamp(28px, 4.5vw, 44px); letter-spacing:.2px; }
+    .tagline{ margin:0 auto; max-width: 70ch; color: var(--muted); font-size: clamp(14px, 2.3vw, 18px); }
+    .buttons{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:4px; }
+    .btn{ display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:12px; border: 1px solid var(--border);
+      background:#0e1530cc; color:var(--text); text-decoration:none; transition: transform .06s ease, box-shadow .06s ease; }
     .btn:hover{ transform: translateY(-1px); }
-    footer{
-      text-align: center;
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 8px;
-    }
-    .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
-    .pill{
-      display:inline-block; padding: 4px 10px; border-radius: 999px;
-      background:#1a2550; border:1px solid #2a3356; font-size:12px; color:#c8d2ea;
+    .btn:focus{ outline:none; box-shadow: var(--ring); }
+    .btn.secondary{ background:transparent; color:var(--accent); }
+    .grid{ display:grid; grid-template-columns: repeat(12, 1fr); gap:18px; }
+    .col-8{ grid-column: span 8; } .col-4{ grid-column: span 4; }
+    @media (max-width: 900px){ .grid{ grid-template-columns:1fr; } .col-8,.col-4{ grid-column:auto; } }
+
+    .card{ background: var(--surface); border:1px solid var(--border); border-radius: var(--radius); padding:22px; backdrop-filter: blur(6px); box-shadow: var(--shadow); }
+    .section-title{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 0 10px; }
+    h2{ margin:0; font-size: 20px; letter-spacing:.2px; }
+    .subtle{ color: var(--muted); font-size: 14px; }
+    ul{ margin: 0; padding-left: 18px; }
+    a{ color: var(--accent); text-decoration: none; } a:hover{ text-decoration: underline; }
+
+    /* Resume blocks */
+    .item{ display:grid; grid-template-columns: 1fr auto; gap:6px 14px; padding:12px 0; border-top:1px dashed #223063; }
+    .item:first-child{ border-top:none; padding-top:0; }
+    .role{ font-weight:600; }
+    .org{ color:var(--muted); }
+    .date{ color:var(--muted); font-size:14px; white-space:nowrap; }
+    .skills{ display:flex; flex-wrap:wrap; gap:8px; }
+    .pill{ display:inline-block; padding:4px 10px; border-radius:999px; background:#172353; border:1px solid var(--border); font-size:12px; color:#c8d2ea; }
+
+    /* Projects grid */
+    .projects{ display:grid; grid-template-columns: repeat(2, 1fr); gap:16px; }
+    @media (max-width: 700px){ .projects{ grid-template-columns: 1fr; } }
+    .project{ border:1px solid var(--border); background:linear-gradient(180deg, #0f1737cc, #0f1737aa); border-radius:16px; padding:16px; }
+    .project h3{ margin:0 0 6px; font-size:16px; }
+    .stack{ margin-top:10px; display:flex; flex-wrap:wrap; gap:8px; }
+
+    /* Footer */
+    footer{ text-align:center; color:var(--muted); font-size:13px; margin-top:8px; }
+
+    /* Print (1‑page resume) */
+    @media print{
+      body{ background:#fff; color:#111; }
+      .wrap{ max-width: 800px; padding:0; }
+      header.hero, .card{ background:#fff; border-color:#ccc; box-shadow:none; }
+      a{ color:#000; text-decoration: underline; }
+      .buttons{ display:none; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jeremy Johnsonwall",
+    "email": "mailto:jeremy@johnsonwall.com",
+    "url": "https://johnsonwall.com",
+    "sameAs": [
+      "https://github.com/MediculousCodes",
+      "https://www.linkedin.com/in/jeremyjohnsonwall"
+    ],
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Clemson University"
+    },
+    "knowsAbout": ["Software Engineering", "Data Science", "Cloud Computing", "Web Development"]
+  }
+  </script>
 </head>
 <body>
   <main class="wrap">
-    <header>
-      <span class="tag">Hello! I’m</span>
+    <!-- HERO -->
+    <header class="hero" role="banner">
+      <span class="eyebrow" aria-label="current role">New Graduate • Computer Science</span>
       <h1>Jeremy Johnsonwall</h1>
-      <p class="sub">
-        I attend <strong>Clemson University</strong> and I’m building cool things on the web.
-      </p>
-      <div class="buttons">
-        <a class="btn" href="https://github.com/MediculousCodes/mediculouscodes.github.io/blob/main/Jeremy%20Johnsonwall%20Resume.pdf" aria-label="View my resume">📄 Resume</a>
-        <a class="btn" href="https://github.com/MediculousCodes" aria-label="Visit my GitHub">💻 GitHub</a>
-        <a class="btn" href="mailto:jeremy@johnsonwall.com" aria-label="Send me an email">✉️ Email</a>
-        <a class="btn" href="https://www.linkedin.com/in/jeremyjohnsonwall" aria-label="Connect on LinkedIn">🔗 LinkedIn</a>
+      <p class="tagline">Software • Data • Cloud. I build reliable, human‑centered systems and ship practical projects end‑to‑end.</p>
+      <div class="buttons" role="navigation" aria-label="primary">
+        <a class="btn" href="mailto:jeremy@johnsonwall.com" aria-label="Email Jeremy">✉️ Email</a>
+        <a class="btn" href="https://github.com/MediculousCodes" aria-label="GitHub profile">💻 GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/jeremyjohnsonwall" aria-label="LinkedIn profile">🔗 LinkedIn</a>
+        <a class="btn" href="https://github.com/MediculousCodes/mediculouscodes.github.io/blob/main/Jeremy%20Johnsonwall%20Resume.pdf" aria-label="Download resume PDF">📄 Resume (PDF)</a>
+        <button class="btn secondary" onclick="window.print()" aria-label="Print to PDF">🖨️ Print to PDF</button>
       </div>
     </header>
 
-    <section class="grid">
-      <div class="card col-span-7">
-        <h2>About</h2>
-        <p>
-          I’m a student at Clemson, interested in software, data, and cloud. I enjoy
-          shipping small, useful projects and learning by doing.
-        </p>
-        <p>
-          On this site you’ll find a few highlights and ways to reach me. Want to collaborate?
-          Shoot me a message!
-        </p>
+    <section class="grid" aria-label="summary and skills">
+      <!-- SUMMARY / ABOUT -->
+      <article class="card col-8">
+        <div class="section-title">
+          <h2>Profile</h2>
+          <span class="subtle">South Carolina, USA</span>
+        </div>
+        <p>I’m a Clemson University computer science graduate focused on building useful software with clean interfaces and dependable backends. My interests span web apps, data workflows, and cloud infrastructure. I like small, shipped wins and clear, maintainable code.</p>
+        <div class="skills" aria-label="core strengths">
+          <span class="pill">Full‑stack Web</span>
+          <span class="pill">APIs</span>
+          <span class="pill">Data Pipelines</span>
+          <span class="pill">Cloud (AWS/Azure)</span>
+          <span class="pill">DevOps & Docker</span>
+        </div>
+      </article>
+
+      <!-- QUICK INFO -->
+      <aside class="card col-4" aria-label="contact and quick links">
+        <div class="section-title">
+          <h2>At a Glance</h2>
+        </div>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:jeremy@johnsonwall.com">jeremy@johnsonwall.com</a></li>
+          <li><strong>GitHub:</strong> <a href="https://github.com/MediculousCodes">MediculousCodes</a></li>
+          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jeremyjohnsonwall">jeremyjohnsonwall</a></li>
+          <li><strong>Location:</strong> South Carolina, USA</li>
+        </ul>
+        <div class="stack" style="margin-top:12px">
+          <span class="pill">C</span>
+          <span class="pill">C++</span>
+          <span class="pill">Python</span>
+          <span class="pill">Java</span>
+          <span class="pill">R</span>
+          <span class="pill">MySQL</span>
+          <span class="pill">REST</span>
+          <span class="pill">ASP.NET</span>
+          <span class="pill">React</span>
+          <span class="pill">Blazor</span>
+          <span class="pill">Docker</span>
+          <span class="pill">AWS</span>
+          <span class="pill">Azure</span>
+        </div>
+      </aside>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="card" aria-label="experience">
+      <div class="section-title">
+        <h2>Experience</h2>
+        <span class="subtle">Internships & campus roles</span>
       </div>
 
-      <div class="card col-span-5">
-        <h2>Quick Facts</h2>
-        <ul>
-          <li><span class="pill">Location</span> — South Carolina, USA</li>
-          <li><span class="pill">Focus</span> — Web, Data, Cloud</li>
-          <li><span class="pill">School</span> — Clemson University</li>
-          <li><span class="pill">Hobbies</span> — Rowing, music, hiking</li>
-        </ul>
+      <div class="item">
+        <div>
+          <div class="role">ServiceNow Administrator Intern <span class="org">— LPL Financial</span></div>
+          <ul>
+            <li>Built and enhanced Service Catalog items, workflows, and dashboards; supported Yokohama upgrade analysis.</li>
+            <li>Generated reports for Problem Management and University Recruitment; earned ServiceNow CSA credential.</li>
+          </ul>
+        </div>
+        <div class="date">Summer</div>
+      </div>
+
+      <div class="item">
+        <div>
+          <div class="role">IT Support / Developer <span class="org">— Clemson CCIT</span></div>
+          <ul>
+            <li>Assisted campus operations across ServiceNow, automation scripts, and user support in a fast‑paced environment.</li>
+            <li>Collaborated with student teams and staff on tooling that improved workflow clarity and response times.</li>
+          </ul>
+        </div>
+        <div class="date">Multi‑year</div>
       </div>
     </section>
 
-    <section class="card">
-      <h2>Projects</h2>
+    <!-- PROJECTS -->
+    <section class="card" aria-label="projects">
+      <div class="section-title">
+        <h2>Selected Projects</h2>
+        <span class="subtle">Built & shipped</span>
+      </div>
+      <div class="projects">
+        <article class="project">
+          <h3>Palmetto Chatbot</h3>
+          <p>Support assistant for the Clemson Palmetto supercomputer to help researchers find docs, queues, and usage tips.</p>
+          <div class="stack">
+            <span class="pill">Python</span><span class="pill">Retrieval</span><span class="pill">AWS</span>
+          </div>
+        </article>
+        <article class="project">
+          <h3>TigerTix</h3>
+          <p>Team event management web app for CPSC 3720; ticketing, roles, and basic analytics.</p>
+          <div class="stack">
+            <span class="pill">React</span><span class="pill">Node</span><span class="pill">PostgreSQL</span>
+          </div>
+        </article>
+        <article class="project">
+          <h3>Neural Flower ID</h3>
+          <p>Image classification with k‑fold validation; focused on clean pipelines and reproducible experiments.</p>
+          <div class="stack">
+            <span class="pill">Python</span><span class="pill">PyTorch</span><span class="pill">ML Ops (basic)</span>
+          </div>
+        </article>
+        <article class="project">
+          <h3>Ticketing System (Sample)</h3>
+          <p>ASP.NET + Blazor + REST API demo app showcasing CRUD, auth, and layered architecture.</p>
+          <div class="stack">
+            <span class="pill">ASP.NET</span><span class="pill">Blazor</span><span class="pill">REST</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EDUCATION & CERTS -->
+    <section class="grid" aria-label="education and certifications">
+      <article class="card col-8">
+        <div class="section-title">
+          <h2>Education</h2>
+        </div>
+        <div class="item">
+          <div>
+            <div class="role">B.S. Computer Science <span class="org">— Clemson University</span></div>
+            <ul>
+              <li>Coursework: Data Structures, Algorithms, Databases, Software Engineering, Cloud, ML.</li>
+              <li>Activities: Capstone TA, team projects, rowing & campus life.</li>
+            </ul>
+          </div>
+          <div class="date">—</div>
+        </div>
+      </article>
+      <aside class="card col-4">
+        <div class="section-title">
+          <h2>Certifications</h2>
+        </div>
+        <ul>
+          <li>CompTIA A+ (2024)</li>
+          <li>Google IT Support (2024)</li>
+          <li>Google Cloud: Data Analytics (2024)</li>
+          <li>ServiceNow Certified System Administrator</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- EXTRAS -->
+    <section class="card" aria-label="extras">
+      <div class="section-title">
+        <h2>Highlights</h2>
+        <span class="subtle">What I bring</span>
+      </div>
       <ul>
-        <li><strong>Palmetto Chatbot</strong> — Customer Support Chatbot for the Clemson Palmetto Supercomputer.</li>
-        <li><strong>TigerTix</strong> — Event Management WebApp for CPSC 3720.</li>
+        <li>Eagle Scout — service‑oriented, organized, and reliable.</li>
+        <li>Experience with AWS (Bedrock, Amplify, EC2, Lambda) and Azure; comfortable with Docker and CI basics.</li>
+        <li>Clear written and verbal communication; I enjoy mentoring peers and documenting work.</li>
       </ul>
     </section>
 
     <footer>
-      © <span id="y"></span> Jeremy Johnsonwall
+      © <span id="y"></span> Jeremy Johnsonwall · <span class="subtle">Last updated automatically</span>
     </footer>
   </main>
 
   <script>
-    // Set year automatically
+    // Accessibility tweaks: reduce motion preference
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mq.matches) {
+      document.documentElement.style.setProperty('--shadow', 'none');
+    }
+    // Set current year
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
-
-
-
