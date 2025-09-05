@@ -66,7 +66,11 @@
     a{ color: var(--accent); text-decoration: none; } a:hover{ text-decoration: underline; }
 
     /* Resume blocks */
-    .item{ display:grid; grid-template-columns: 1fr auto; gap:6px 14px; padding:12px 0; border-top:1px dashed #223063; }
+    .item{ display:flex; justify-content:space-between; align-items:flex-start; gap:14px; padding:16px 0; border-top:1px dashed #223063; }
+    .item:first-child{ border-top:none; padding-top:0; }
+    .item .content{ flex: 1 1 auto; min-width: 0; }
+    .item .meta{ flex: 0 0 auto; min-width: 160px; text-align: right; color: var(--muted); font-size: 14px; }
+    @media (max-width: 700px){ .item{ flex-direction:
     .item:first-child{ border-top:none; padding-top:0; }
     .role{ font-weight:600; }
     .org{ color:var(--muted); }
@@ -132,119 +136,27 @@
       <!-- SUMMARY / ABOUT -->
       <article class="card col-8">
         <div class="section-title">
-          <h2>Profile</h2>
-          <span class="subtle">South Carolina, USA</span>
-        </div>
-        <p>I’m a Clemson University computer science graduate focused on building useful software with clean interfaces and dependable backends. My interests span web apps, data workflows, and cloud infrastructure. I like small, shipped wins and clear, maintainable code.</p>
-        <div class="skills" aria-label="core strengths">
-          <span class="pill">Full‑stack Web</span>
-          <span class="pill">APIs</span>
-          <span class="pill">Data Pipelines</span>
-          <span class="pill">Cloud (AWS/Azure)</span>
-          <span class="pill">DevOps & Docker</span>
-        </div>
-      </article>
-
-      <!-- QUICK INFO -->
-      <aside class="card col-4" aria-label="contact and quick links">
-        <div class="section-title">
-          <h2>At a Glance</h2>
-        </div>
-        <ul>
-          <li><strong>Email:</strong> <a href="mailto:jeremy@johnsonwall.com">jeremy@johnsonwall.com</a></li>
-          <li><strong>GitHub:</strong> <a href="https://github.com/MediculousCodes">MediculousCodes</a></li>
-          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jeremyjohnsonwall">jeremyjohnsonwall</a></li>
-          <li><strong>Location:</strong> South Carolina, USA</li>
-        </ul>
-        <div class="stack" style="margin-top:12px">
-          <span class="pill">C</span>
-          <span class="pill">C++</span>
-          <span class="pill">Python</span>
-          <span class="pill">Java</span>
-          <span class="pill">R</span>
-          <span class="pill">MySQL</span>
-          <span class="pill">REST</span>
-          <span class="pill">ASP.NET</span>
-          <span class="pill">React</span>
-          <span class="pill">Blazor</span>
-          <span class="pill">Docker</span>
-          <span class="pill">AWS</span>
-          <span class="pill">Azure</span>
-        </div>
-      </aside>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section class="card" aria-label="experience">
-      <div class="section-title">
-        <h2>Experience</h2>
-        <span class="subtle">Internships & campus roles</span>
-      </div>
-
-      <div class="item">
-        <div>
-          <div class="role">Graduate Teaching Assistant — Strategic Industry Partnerships <span class="org">— Clemson University, School of Computing</span></div>
-          <ul>
-            <li>Mentor high‑performing student teams in the Capstone Program under Professor Carrie Russell (Director of Strategic Industry Partnerships).</li>
-            <li>Guide semester‑long client projects with partners including <strong>TD SYNNEX</strong>, <strong>NVIDIA</strong>, and <strong>Capgemini</strong>.</li>
-            <li>Coach teams on design reviews, stakeholder communication, agile delivery, and final presentations.</li>
-          </ul>
-        </div>
-        <div cla
-
-    <!-- PROJECTS -->
-    <section class="card" aria-label="projects">
-      <div class="section-title">
-        <h2>Selected Projects</h2>
-        <span class="subtle">Built & shipped</span>
-      </div>
-      <div class="projects">
-        <article class="project">
-          <h3>Palmetto Chatbot</h3>
-          <p>Support assistant for the Clemson Palmetto supercomputer to help researchers find docs, queues, and usage tips.</p>
-          <div class="stack">
-            <span class="pill">Python</span><span class="pill">Retrieval</span><span class="pill">AWS</span>
-          </div>
-        </article>
-        <article class="project">
-          <h3>TigerTix</h3>
-          <p>Team event management web app for CPSC 3720; ticketing, roles, and basic analytics.</p>
-          <div class="stack">
-            <span class="pill">React</span><span class="pill">Node</span><span class="pill">PostgreSQL</span>
-          </div>
-        </article>
-        <article class="project">
-          <h3>Neural Flower ID</h3>
-          <p>Image classification with k‑fold validation; focused on clean pipelines and reproducible experiments.</p>
-          <div class="stack">
-            <span class="pill">Python</span><span class="pill">PyTorch</span><span class="pill">ML Ops (basic)</span>
-          </div>
-        </article>
-        <article class="project">
-          <h3>Ticketing System (Sample)</h3>
-          <p>ASP.NET + Blazor + REST API demo app showcasing CRUD, auth, and layered architecture.</p>
-          <div class="stack">
-            <span class="pill">ASP.NET</span><span class="pill">Blazor</span><span class="pill">REST</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- EDUCATION & CERTS -->
-    <section class="grid" aria-label="education and certifications">
-      <article class="card col-8">
-        <div class="section-title">
           <h2>Education</h2>
         </div>
         <div class="item">
           <div>
-            <div class="role">B.S. Computer Science <span class="org">— Clemson University</span></div>
+            <div class="role">M.S. Computer Science <span class="org">— Clemson University</span></div>
             <ul>
-              <li>Coursework: Data Structures, Algorithms, Databases, Software Engineering, Cloud, ML.</li>
-              <li>Activities: Capstone TA, team projects, rowing & campus life.</li>
+              <li>Concentration: AI & Machine Learning; <strong>GPA: 4.0</strong>.</li>
+              <li>Coursework: Artificial Intelligence, Applied Data Science, Statistical Computing (R), Cloud Computing Architecture (AWS).</li>
             </ul>
           </div>
-          <div class="date">—</div>
+          <div class="date">May 2025 – May 2026</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="role">B.S. Computer Information Systems <span class="org">— Clemson University</span></div>
+            <ul>
+              <li><strong>GPA: 3.76</strong>. Activities: Rowing Association, Presbyterian Student Association, Navigators, FCA.</li>
+              <li>Relevant Courses: Programming Methodology (C/C++), Data Structures & Algorithms (C++), ML (Python), Network Programming (Python), Software Engineering (ASP.NET), OS (C), Security, DBMS (SQL).</li>
+            </ul>
+          </div>
+          <div class="date">Jun 2022 – May 2025</div>
         </div>
       </article>
       <aside class="card col-4">
@@ -252,25 +164,40 @@
           <h2>Certifications</h2>
         </div>
         <ul>
-          <li>CompTIA A+ (2024)</li>
-          <li>Google IT Support (2024)</li>
-          <li>Google Cloud: Data Analytics (2024)</li>
-          <li>ServiceNow Certified System Administrator</li>
+          <li>ServiceNow Certified System Administrator (CSA) — Jul 2025</li>
+          <li>AWS Cloud Technical Essentials — Feb 2025</li>
+          <li>CompTIA A+ — Jan 2024</li>
+          <li>Google IT Support Specialization — Jan 2024</li>
+          <li>Google Cloud: Data Analytics — Jul 2024</li>
         </ul>
       </aside>
     </section>
 
     <!-- EXTRAS -->
-    <section class="card" aria-label="extras">
+    <section class="card" aria-label="volunteering">
       <div class="section-title">
-        <h2>Highlights</h2>
-        <span class="subtle">What I bring</span>
+        <h2>Volunteering</h2>
+        <span class="subtle">Community & leadership</span>
       </div>
-      <ul>
-        <li>Eagle Scout — service‑oriented, organized, and reliable.</li>
-        <li>Experience with AWS (Bedrock, Amplify, EC2, Lambda) and Azure; comfortable with Docker and CI basics.</li>
-        <li>Clear written and verbal communication; I enjoy mentoring peers and documenting work.</li>
-      </ul>
+      <div class="item">
+        <div>
+          <div class="role">Audio Engineer <span class="org">— Fellowship of Christian Athletes</span></div>
+          <ul>
+            <li>Manage weekly sound for a 9‑member band; coordinate monthly outdoor 14kW audio setups for 1,500+ attendees.</li>
+            <li>Lead setup/teardown, mix live audio, and troubleshoot equipment for campus‑wide events.</li>
+          </ul>
+        </div>
+        <div class="date">Jan 2024 – Present</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="role">Technology Specialist <span class="org">— Fort Hill Presbyterian Church</span></div>
+          <ul>
+            <li>Support AV, streaming, and computer systems to ensure smooth services and large events.</li>
+          </ul>
+        </div>
+        <div class="date">Jan 2020 – Present</div>
+      </div>
     </section>
 
     <footer>
